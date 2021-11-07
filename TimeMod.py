@@ -8,11 +8,11 @@ from asyncio.exceptions import TimeoutError
 def register(cb): 
     cb(TimeMod()) 
  
-class Tio_WeatherMod(loader.Module): 
+class TimeMod(loader.Module): 
     """Покажу время всех городов мира""" 
-    strings = {'name': 'Time'} 
+    strings = {'name': 'TimeMod | by @roki_crazy'} 
  
-    async def wcmd(self, message): 
+    async def timecmd(self, message): 
         """Используйте .time время <город>.""" 
         try: 
             text = utils.get_args_raw(message) 
@@ -52,4 +52,4 @@ class Tio_WeatherMod(loader.Module):
                     await message.delete() 
                     await message.client.send_message(message.to_id, response.text) 
         except TimeoutError: 
-            return await message.edit("<b>Неизвестная ошибка, пиши аффтору модуля.</b>")
+            return await message.edit("<b>Неизвестная ошибка.</b>")
